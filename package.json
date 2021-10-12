@@ -6,7 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "web": "cd web && webpack-dev-server --config ./webpack.config.js",
-    "web:build": "cd web && NODE_ENV=production webpack --config ./webpack.config.js ",
+    "web:build": "cd web && NODE_ENV=production webpack --config ./webpack.config.js",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
