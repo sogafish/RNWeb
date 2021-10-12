@@ -1,22 +1,28 @@
 import React from 'react';
 import {
   SafeAreaView,
-  ScrollView,
   StatusBar,
-  // StyleSheet,
+  StyleSheet,
   Text,
   useColorScheme,
+  Platform,
 } from 'react-native';
+import { SpaceView } from './components';
+
+const styles = StyleSheet.create({
+  appContainer: {
+    flex: 1,
+  },
+});
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.appContainer}>
+      <SpaceView size={40} />
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <Text>This is RN Component App.</Text>
-      </ScrollView>
+      <Text>working on {Platform.OS}.</Text>
     </SafeAreaView>
   );
 };
