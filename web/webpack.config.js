@@ -6,7 +6,7 @@ const appDir = path.resolve(__dirname, '../');
 const webEntryFileName = 'index.web.ts';
 const webOutputFileName = 'bundle.web.js';
 const webOutputDirName = 'dist';
-const env = process.env.NODE_ENV || 'development'; // todo
+const env = process.env.NODE_ENV || 'development';
 
 // const babelLoaderConfig = {
 //   test: /\.(tsx|ts|jsx|js|mjs)$/,
