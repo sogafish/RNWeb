@@ -1,29 +1,16 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  Platform,
-} from 'react-native';
-import { SpaceView } from './components';
+import { Provider } from 'react-redux';
+import { store } from './store';
 
-const styles = StyleSheet.create({
-  appContainer: {
-    flex: 1,
-  },
-});
+import { Navigator } from './navigator';
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+  // const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <SafeAreaView style={styles.appContainer}>
-      <SpaceView size={40} />
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <Text>working on {Platform.OS}.</Text>
-    </SafeAreaView>
+    <Provider store={store}>
+      <Navigator />
+    </Provider>
   );
 };
 
