@@ -13,7 +13,7 @@
     "clear": "watchman watch-del-all"
   },
   "dependencies": {
-    "@react-navigation/native": "^6.0.5",
+    "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.4",
     "@reduxjs/toolkit": "^1.6.2",
     "react": "17.0.2",
