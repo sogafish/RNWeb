@@ -1,18 +1,29 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { SCREENS } from '../constants/screens';
-import { HomeScreen, SettingScreen } from '../screens';
+import { SCREENS } from '@constants/screens';
+import { Tabs } from './Tabs';
+import { LoadingView } from '../components';
 
-const Stack = createNativeStackNavigator();
+const config = {
+  screens: {
+    [SCREENS.FIRST]: 'first',
+    [SCREENS.SECOND]: 'second',
+    [SCREENS.HOME]: 'home',
+    [SCREENS.MAIN]: 'main',
+    [SCREENS.MY_PAGE]: 'my-page',
+    [SCREENS.SETTING]: 'setting',
+  },
+};
+
+const linking = {
+  prefixes: ['', 'myApp://'],
+  config,
+};
 
 export const Navigator = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName={SCREENS.HOME}>
-        <Stack.Screen name={SCREENS.HOME} component={HomeScreen} />
-        <Stack.Screen name={SCREENS.SETTING} component={SettingScreen} />
-      </Stack.Navigator>
+    <NavigationContainer linking={linking} fallback={<LoadingView />}>
+      <Tabs />
     </NavigationContainer>
   );
 };
