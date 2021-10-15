@@ -13,6 +13,7 @@ import { decrement, increment } from '../reducers';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    minHeight: 400,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -54,7 +55,7 @@ export const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <Text>Home Screen on {Platform.OS}</Text>
-      <Text>count: {count}</Text>
+      <Text>count:{count}</Text>
       <View style={styles.buttonsContainer}>
         <TouchableOpacity
           onPress={onIncrement}
