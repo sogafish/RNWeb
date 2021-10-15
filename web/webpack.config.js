@@ -8,45 +8,33 @@ const webOutputFileName = 'bundle.web.js';
 const webOutputDirName = 'dist';
 const env = process.env.NODE_ENV || 'development';
 
-// const babelLoaderConfig = {
-//   test: /\.(tsx|ts|jsx|js|mjs)$/,
-//   include: [
-//     path.resolve(appDir, webEntryFileName),
-//     path.resolve(appDir, 'src'),
-//     path.resolve(appDir, 'node_modules/react-native-uncompiled'),
-//   ],
-//   use: {
-//     loader: 'babel-loader',
-//     options: {
-//       cacheDirectory: true,
-//       presets: ['module:metro-react-native-babel-preset'],
-//       plugins: ['react-native'],
-//     },
-//   },
-// };
-
-// const imageLoaderConfig = {
-//   test: /\.(gif|jpe?g|png|svg)$/,
-//   use: {
-//     loader: 'url-loader',
-//     options: {
-//       name: '[name].[ext]',
-//       esModule: false,
-//     },
-//   },
-// };
-
-const tsLoaderConfig = {
+const babelLoaderConfig = {
   test: /\.(tsx|ts|jsx|js|mjs)$/,
-  exclude: ['/node_modules/'],
-  loader: 'ts-loader',
-  options: {
-    compilerOptions: {
-      allowJs: true,
-      target: 'ES5',
-      jsx: 'react',
-      outDir: 'webroot',
-      lib: ['dom', 'ES2017'],
+  include: [
+    path.resolve(appDir, webEntryFileName),
+    path.resolve(appDir, 'src'),
+    // path.resolve(appDir, 'node_modules/react-native-uncompiled'),
+  ],
+  exclude: [path.resolve(appDir, 'node_modules/')],
+  use: {
+    loader: 'babel-loader',
+    options: {
+      plugins: ['react-native-web'],
+      presets: [
+        'module:metro-react-native-babel-preset',
+        '@babel/preset-typescript',
+      ],
+    },
+  },
+};
+
+const imageLoaderConfig = {
+  test: /\.(gif|jpe?g|png|svg)$/,
+  use: {
+    loader: 'url-loader',
+    options: {
+      name: '[name].[ext]',
+      esModule: false,
     },
   },
 };
@@ -61,7 +49,7 @@ module.exports = {
   },
 
   module: {
-    rules: [tsLoaderConfig],
+    rules: [babelLoaderConfig, imageLoaderConfig],
   },
 
   plugins: [
@@ -72,7 +60,9 @@ module.exports = {
   ],
 
   resolve: {
-    alias: { 'react-native': 'react-native-web' },
+    alias: {
+      'react-native$': 'react-native-web',
+    },
     extensions: [
       '.web.tsx',
       '.web.ts',
