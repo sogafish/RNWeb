@@ -5,12 +5,9 @@ import {
   StyleSheet,
   TouchableOpacity,
   Platform,
-  Button,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import { RootState } from '../store';
 import { useSelector, useDispatch } from 'react-redux';
-import { SCREENS } from '../constants/screens';
 import { decrement, increment } from '../reducers';
 
 const styles = StyleSheet.create({
@@ -51,10 +48,8 @@ const styles = StyleSheet.create({
 export const HomeScreen = () => {
   const count = useSelector((state: RootState) => state.counter.value);
   const dispatch = useDispatch();
-  const navigation = useNavigation();
   const onIncrement = () => dispatch(increment());
   const onDecrement = () => dispatch(decrement());
-  const goToSettingScreen = () => navigation.navigate(SCREENS.SETTING);
 
   return (
     <View style={styles.container}>
@@ -72,7 +67,6 @@ export const HomeScreen = () => {
           <Text style={styles.buttonText}>-</Text>
         </TouchableOpacity>
       </View>
-      <Button onPress={goToSettingScreen} title="to Setting" />
     </View>
   );
 };
