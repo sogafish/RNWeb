@@ -62,6 +62,9 @@ module.exports = {
   resolve: {
     alias: {
       'react-native$': 'react-native-web',
+      '@components': path.resolve(__dirname, '../src/components'),
+      '@constants': path.resolve(__dirname, '../src/constants'),
+      '@screens': path.resolve(__dirname, '../src/screens'),
     },
     extensions: [
       '.web.tsx',
@@ -72,6 +75,7 @@ module.exports = {
       '.web.js',
       '.jsx',
       '.js',
+      '.json',
     ],
   },
 };
