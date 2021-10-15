@@ -16,7 +16,6 @@ import { decrement, increment } from '../reducers';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    minHeight: 400,
     alignItems: 'center',
     justifyContent: 'center',
   },
