@@ -9,7 +9,7 @@ const webOutputDirName = 'dist';
 const env = process.env.NODE_ENV || 'development';
 
 const babelLoaderConfig = {
-  test: /\.(tsx|ts|jsx|js|mjs)$/,
+  test: /\.(tsx|ts|jsx|js|mjs|json)$/,
   include: [
     path.resolve(appDir, webEntryFileName),
     path.resolve(appDir, 'src'),

@@ -1,10 +1,10 @@
 import { AppRegistry } from 'react-native';
-// import { name as appName } from './app.json'; // todo json
+import { name as appName } from './app.json';
 import App from './src/App';
 
-AppRegistry.registerComponent('RNWeb', () => App);
+AppRegistry.registerComponent(appName, () => App);
 
-AppRegistry.runApplication('RNWeb', {
+AppRegistry.runApplication(appName, {
   initialProps: {},
   rootTag: document.getElementById('app-root'),
 });
