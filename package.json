@@ -7,6 +7,8 @@
     "ios": "react-native run-ios",
     "web": "cd web && webpack-dev-server --config ./webpack.config.js",
     "web:build": "cd web && NODE_ENV=production webpack --config ./webpack.config.js",
+    "web:server": "cd web && webpack-dev-server --config ./webpack.server.js",
+    "web:server:build": "cd web && NODE_ENV=production webpack --config ./webpack.server.js",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
@@ -50,7 +52,8 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.58.1",
     "webpack-cli": "^4.9.0",
-    "webpack-dev-server": "^4.3.1"
+    "webpack-dev-server": "^4.3.1",
+    "webpack-node-externals": "^3.0.0"
   },
   "resolutions": {
     "@types/react": "^17"
