@@ -34,9 +34,19 @@ app.use(async (req, res) => {
       name="viewport"
       content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1.00001, viewport-fit=cover"
     >
+    <style>
+      html, body { height: 100%; }
+      body { overflow: hidden; }
+      #app-root { 
+        display: flex;
+        height: 100%;
+        max-width: 680px;
+        margin: 0 auto;
+      }
+    </style>
       ${css}
     <body style="min-height: 100%">
-    <div id="root" style="display: flex; min-height: 100vh">
+    <div id="app-root" style="display: flex; min-height: 100vh">
       ${html}
     </div>
   `;
@@ -47,5 +57,8 @@ app.use(async (req, res) => {
 app.get('/', (_, res) => res.send('<p>this is Root</p>'));
 
 app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
+  console.log(`
+    Server is listening on port ${PORT}
+    http://localhost:${PORT}
+  `);
 });
